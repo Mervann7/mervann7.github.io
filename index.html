@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TesisAnt - Çok Yakında</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Üst Sol Köşe Dalgalar */
+    .wave-top-left {
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 400px;
+        height: 400px;
+        opacity: 0.8;
+    }
+
+    .wave-top-left::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #5eb3e0;
+        border-radius: 0 0 50% 0;
+        transform: rotate(-10deg);
+    }
+
+    .wave-top-left::after {
+        content: '';
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        background: #2d5ba6;
+        border-radius: 0 0 50% 0;
+        transform: rotate(-5deg);
+        top: 20px;
+        left: 20px;
+    }
+
+    /* Alt Sağ Köşe Dalgalar */
+    .wave-bottom-right {
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 450px;
+        height: 450px;
+        opacity: 0.8;
+    }
+
+    .wave-bottom-right::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #5eb3e0;
+        border-radius: 50% 0 0 0;
+        transform: rotate(10deg);
+    }
+
+    .wave-bottom-right::after {
+        content: '';
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        background: #2d5ba6;
+        border-radius: 50% 0 0 0;
+        transform: rotate(5deg);
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* İçerik Container */
+    .container {
+        text-align: center;
+        z-index: 10;
+        padding: 60px 40px;
+        max-width: 700px;
+        position: relative;
+    }
+
+    /* Logo */
+    .logo {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 30px;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* TesisAnt Başlık */
+    .brand-name {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #2d5ba6;
+        margin-bottom: 10px;
+        animation: fadeIn 1.2s ease-out;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+        color: #5eb3e0;
+        margin-bottom: 50px;
+        font-weight: 300;
+        animation: fadeIn 1.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Çok Yakında Bölümü */
+    .coming-soon {
+        background: linear-gradient(135deg, #2d5ba6 0%, #5eb3e0 100%);
+        color: white;
+        padding: 40px 60px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(45, 91, 166, 0.3);
+        margin-bottom: 40px;
+        animation: scaleIn 1.6s ease-out;
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .coming-soon h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .coming-soon p {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        line-height: 1.6;
+    }
+
+    /* İletişim Bilgileri */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        animation: fadeInUp 1.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: #2d5ba6;
+        font-size: 1.1rem;
+        padding: 15px;
+        background: rgba(94, 179, 224, 0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+        background: rgba(94, 179, 224, 0.2);
+        transform: translateX(5px);
+    }
+
+    .contact-icon {
+        width: 30px;
+        height: 30px;
+        background: #2d5ba6;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .brand-name {
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+        }
+
+        .coming-soon h1 {
+            font-size: 2rem;
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+        }
+
+        .coming-soon {
+            padding: 30px 30px;
+        }
+
+        .wave-top-left,
+        .wave-bottom-right {
+            width: 250px;
+            height: 250px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+        }
+
+        .contact-item {
+            font-size: 0.95rem;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Üst Sol Köşe Dalgalar -->
+    <div class="wave-top-left"></div>
+
+```
+<!-- Alt Sağ Köşe Dalgalar -->
+<div class="wave-bottom-right"></div>
+
+<!-- Ana İçerik -->
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="data:image/png;base64,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
+
+    <!-- Marka İsmi -->
+    <div class="brand-name">TesisAnt</div>
+    <div class="subtitle">Sıhhi Ve Mekanik Tesisat</div>
+
+    <!-- Çok Yakında Kutusu -->
+    <div class="coming-soon">
+        <h1>Çok Yakında Hizmetinizdeyiz</h1>
+        <p>Yeni web sitemiz üzerinde çalışıyoruz. Size daha iyi hizmet verebilmek için hazırlanıyoruz!</p>
+    </div>
+
+    <!-- İletişim Bilgileri -->
+    <div class="contact-info">
+        <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>+905325639323</div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>kurumsal@tesisant.com</div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div>www.tesisant.com</div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>Kepez/Antalya</div>
+        </div>
+    </div>
+</div>
+```
+
+</body>
+</html>
